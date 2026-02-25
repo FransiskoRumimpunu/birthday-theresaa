@@ -1,215 +1,274 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Happy Birthday My Love</title>
+<title>For Theresa 🤍</title>
 
 <style>
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family: 'Segoe UI', sans-serif;
-}
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',sans-serif;}
+body{overflow:hidden;background:black;color:white;}
 
-body{
-height:100vh;
-overflow:hidden;
-}
-
-/* LOGIN PAGE */
+/* LOGIN */
 .login{
-position:fixed;
-width:100%;
-height:100%;
+position:fixed;width:100%;height:100%;
+display:flex;flex-direction:column;
+justify-content:center;align-items:center;
+background:black;z-index:10;transition:1s;
+}
+.login h2{margin-bottom:20px;letter-spacing:2px;}
+.login input{
+padding:12px 20px;border:none;border-radius:30px;text-align:center;
+}
+.login button{
+margin-top:15px;padding:10px 25px;border:none;
+border-radius:30px;background:gold;color:black;font-weight:bold;
+}
+
+/* CINEMATIC OPENING */
+.cinematic{
+position:fixed;width:100%;height:100%;
+background:black;display:flex;
+justify-content:center;align-items:center;
+z-index:9;opacity:0;transition:2s;
+font-size:20px;letter-spacing:3px;
+}
+
+/* SLIDER */
+.slider{
+display:flex;height:100vh;width:500vw;
+transition:transform 0.6s ease-in-out;
+}
+.slide{
+width:100vw;height:100vh;
+position:relative;
+background-size:cover;
+background-position:center;
+display:flex;align-items:center;
+justify-content:center;
+text-align:center;padding:30px;
+}
+.overlay{
+position:absolute;width:100%;height:100%;
+background:rgba(0,0,0,0.65);
+backdrop-filter:blur(4px);
+}
+.content{
+position:relative;max-width:800px;
+animation:fadeIn 2s ease;
+}
+h1{color:gold;margin-bottom:20px;}
+p{line-height:1.8;font-size:15px;}
+
+@keyframes fadeIn{
+from{opacity:0;transform:translateY(40px);}
+to{opacity:1;transform:translateY(0);}
+}
+
+/* STARS */
+.star{
+position:absolute;
+background:white;
+width:2px;height:2px;
+animation:twinkle 2s infinite alternate;
+}
+@keyframes twinkle{
+from{opacity:0.2;}
+to{opacity:1;}
+}
+
+/* PLAN ANIMATION */
+.plan{
+margin-top:20px;
 display:flex;
 flex-direction:column;
-justify-content:center;
-align-items:center;
-background:linear-gradient(135deg,#1a1a1a,#3d2c2e);
-color:white;
-z-index:10;
-transition:1s;
+gap:18px;
 }
-
-.login h2{
-margin-bottom:20px;
-letter-spacing:2px;
-}
-
-input{
-padding:12px 20px;
-border-radius:30px;
-border:none;
-outline:none;
-text-align:center;
-}
-
-button{
-margin-top:15px;
-padding:10px 25px;
-border:none;
-border-radius:30px;
-background:gold;
-color:black;
-font-weight:bold;
-cursor:pointer;
-transition:0.3s;
-}
-
-button:hover{
-transform:scale(1.05);
-}
-
-/* MAIN CONTENT */
-.main{
-position:absolute;
-width:100%;
-height:100%;
-background:url(https://i.postimg.cc/25nCPBgC/dd9caeb7-0096-47a5-83e0-94d60ee89209.jpg) center/cover no-repeat;
-display:flex;
-justify-content:center;
-align-items:center;
-text-align:center;
-color:white;
+.plan-item{
 opacity:0;
-transition:2s;
+transform:translateY(-20px);
+display:flex;
+align-items:center;
+gap:10px;
+font-size:17px;
+animation:dropFade 1s forwards;
 }
+.plan-item:nth-child(1){animation-delay:0.5s;}
+.plan-item:nth-child(2){animation-delay:1.5s;}
+.plan-item:nth-child(3){animation-delay:2.5s;}
+.plan-item:nth-child(4){animation-delay:3.5s;}
 
-.overlay{
-position:absolute;
-width:100%;
-height:100%;
-background:rgba(0,0,0,0.6);
-backdrop-filter:blur(5px);
+@keyframes dropFade{
+to{opacity:1;transform:translateY(0);}
 }
-
-.content{
-position:relative;
-padding:20px;
-max-width:700px;
-animation:fadeUp 2s ease forwards;
-}
-
-h1{
-font-size:32px;
-margin-bottom:15px;
-color:gold;
-}
-
-p{
-font-size:16px;
-line-height:1.8;
-}
-
-@keyframes fadeUp{
-from{opacity:0; transform:translateY(30px);}
-to{opacity:1; transform:translateY(0);}
-}
-
-/* Floating Hearts */
-.heart{
-position:absolute;
-color:gold;
-animation:float 6s linear infinite;
-}
-
-@keyframes float{
-0%{transform:translateY(100vh);opacity:0;}
-20%{opacity:1;}
-100%{transform:translateY(-10vh);opacity:0;}
-}
+.icon{font-size:22px;}
 
 @media(max-width:600px){
-h1{font-size:24px;}
 p{font-size:14px;}
+h1{font-size:22px;}
 }
 </style>
 </head>
-
 <body>
 
 <div class="login" id="login">
-<h2>Enter Password 💛</h2>
-<input type="password" id="password" placeholder="Password">
-<button onclick="checkPassword()">Open My Heart</button>
+<h2>Enter Password 🤍</h2>
+<input type="password" id="pass">
+<button onclick="enter()">Open</button>
 </div>
 
-<div class="main" id="main">
+<div class="cinematic" id="cinematic">
+Tap Anywhere To Begin ✨
+</div>
+
+<div class="slider" id="slider">
+
+<div class="slide" style="background-image:url(https://i.postimg.cc/25nCPBgC/dd9caeb7-0096-47a5-83e0-94d60ee89209.jpg)">
 <div class="overlay"></div>
-
 <div class="content">
-<h1>Happy Birthday, Theresa 🤍</h1>
-
+<h1>Happy Birthday My Love</h1>
 <p>
-26 Februari 2026.<br><br>
+Theresa, di hari istimewamu ini aku ingin kamu tahu bahwa kamu adalah
+anugerah terindah dalam hidupku. Kehadiranmu membawa damai,
+senyummu membawa terang, dan cintamu membuatku percaya bahwa
+Tuhan benar-benar bekerja dengan cara yang indah.
+Aku bersyukur setiap hari karena bisa memanggilmu milikku.
+</p>
+</div>
+</div>
 
-Hari ini adalah hari dimana dunia diberkati dengan hadirnya seorang perempuan luar biasa.  
-Perempuan yang tidak hanya cantik secara rupa, tapi juga indah dalam hati dan lembut dalam tutur katanya.  
+<div class="slide" style="background-image:url(https://i.postimg.cc/vT84Xvqx/c783991f-7137-44b9-85bb-7a813b4404c1.jpg)">
+<div class="overlay"></div>
+<div class="content">
+<h1>You Are My Home</h1>
+<p>
+Bersamamu aku belajar arti kesabaran, ketulusan, dan cinta yang dewasa.
+Aku mencintaimu bukan hanya karena kecantikanmu,
+tetapi karena hatimu yang lembut dan cara kamu memperlakukan orang lain.
+Jika suatu hari dunia terasa berat,
+aku ingin menjadi tempatmu pulang.
+</p>
+</div>
+</div>
 
-Theresa Dyah Ayu Cecilia Putri Winarno,  
-terima kasih karena sudah hadir dalam hidupku.  
-Terima kasih karena sudah menjadi doa yang Tuhan jawab dengan cara yang begitu manis.  
+<div class="slide" style="background-image:url(https://i.postimg.cc/PqLzQdLZ/Whats-App-Image-2026-02-26-at-00-25-55-(1).jpg)">
+<div class="overlay"></div>
+<div class="content">
+<h1>Growing With You</h1>
+<p>
+Aku ingin tumbuh bersamamu.
+Menghadapi setiap musim kehidupan bersama,
+tertawa dalam bahagia dan bertahan dalam sulit.
+Jika aku diberi kesempatan memilih lagi,
+aku tetap akan memilihmu — lagi dan lagi.
+</p>
+</div>
+</div>
 
-Aku bersyukur bisa berdiri di sampingmu.  
-Aku bersyukur bisa memanggilmu milikku.  
-Dan aku bersyukur setiap hari karena Tuhan mempertemukan kita di waktu yang tepat.  
+<div class="slide" style="background-image:url(https://i.postimg.cc/V6qtKvzR/Whats-App-Image-2026-02-26-at-00-25-55.jpg)">
+<div class="overlay"></div>
+<div class="content">
+<h1>Your Dreams Matter</h1>
+<p>
+Di usia barumu ini, semoga setiap doa yang kamu panjatkan
+Tuhan jawab dengan cara terbaik.
+Aku akan selalu mendukungmu,
+menjadi orang yang percaya padamu bahkan ketika kamu ragu pada dirimu sendiri.
+</p>
+</div>
+</div>
 
-Semoga di usia barumu ini,  
-setiap langkahmu dipenuhi damai,  
-setiap impianmu dipermudah jalannya,  
-dan setiap air matamu diganti dengan kebahagiaan yang berlipat ganda.  
+<div class="slide" style="background-image:url(https://i.postimg.cc/fbgqMHXM/Whats-App-Image-2026-02-26-at-00-25-54.jpg)">
+<div class="overlay"></div>
+<div class="content">
+<h1>Our Special Birthday Plan ✨</h1>
 
-Aku mungkin tidak sempurna,  
-tapi aku akan selalu berusaha menjadi yang terbaik untukmu.  
-Menjadi tempatmu pulang.  
-Menjadi bahu ketika kamu lelah.  
-Menjadi tangan yang selalu menggenggam ketika dunia terasa berat.  
+<div class="plan">
+<div class="plan-item">
+<span class="icon">✈️</span>
+<span>Take my girlfriend at airport</span>
+</div>
 
-Selamat ulang tahun, cintaku.  
-Semoga kita selalu berjalan bersama,  
-bukan hanya hari ini,  
-tapi sampai waktu yang Tuhan izinkan.  
+<div class="plan-item">
+<span class="icon">📸</span>
+<span>Photobooth together</span>
+</div>
 
-I love you,  
-more than yesterday,  
-less than tomorrow. 🤍
+<div class="plan-item">
+<span class="icon">🎁</span>
+<span>Buy birthday gift</span>
+</div>
+
+<div class="plan-item">
+<span class="icon">🍽️</span>
+<span>Dinner and going anywhere</span>
+</div>
+</div>
+
+<p style="margin-top:30px;">
+That night won't just be a date.
+It will be another beautiful memory we create together.
+And I cannot wait to live it with you 🤍
 </p>
 
 </div>
 </div>
 
+</div>
+
 <audio id="music" loop>
-<source src="YOUR_MUSIC_LINK_HERE.mp3" type="audio/mpeg">
+<source src="https://files.catbox.moe/ysfxv6.mp3" type="audio/mpeg">
 </audio>
 
 <script>
-function checkPassword(){
-var pass = document.getElementById("password").value;
-if(pass === "sikaica"){
+let current=0;
+let startX=0;
+
+function enter(){
+if(document.getElementById("pass").value==="sikaica"){
 document.getElementById("login").style.opacity="0";
 setTimeout(()=>{
 document.getElementById("login").style.display="none";
-document.getElementById("main").style.opacity="1";
+document.getElementById("cinematic").style.opacity="1";
 document.getElementById("music").play();
-createHearts();
 },1000);
-}else{
-alert("Wrong Password 🤍");
+}else{alert("Wrong Password 🤍");}
+}
+
+document.getElementById("cinematic").addEventListener("click",()=>{
+document.getElementById("cinematic").style.opacity="0";
+});
+
+document.addEventListener("touchstart",(e)=>{
+startX=e.touches[0].clientX;
+});
+document.addEventListener("touchend",(e)=>{
+let endX=e.changedTouches[0].clientX;
+if(startX-endX>50){next();}
+if(endX-startX>50){prev();}
+});
+
+function next(){
+if(current<4){
+current++;
+document.getElementById("slider").style.transform=`translateX(-${current*100}vw)`;
+}
+}
+function prev(){
+if(current>0){
+current--;
+document.getElementById("slider").style.transform=`translateX(-${current*100}vw)`;
 }
 }
 
-function createHearts(){
-setInterval(()=>{
-let heart=document.createElement("div");
-heart.className="heart";
-heart.style.left=Math.random()*100+"%";
-heart.innerHTML="✧";
-heart.style.fontSize=Math.random()*20+10+"px";
-document.body.appendChild(heart);
-setTimeout(()=>heart.remove(),6000);
-},500);
+/* generate stars */
+for(let i=0;i<120;i++){
+let star=document.createElement("div");
+star.className="star";
+star.style.top=Math.random()*100+"vh";
+star.style.left=Math.random()*100+"vw";
+star.style.animationDuration=(Math.random()*3+1)+"s";
+document.body.appendChild(star);
 }
 </script>
 
