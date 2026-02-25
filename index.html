@@ -1,107 +1,215 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Happy Birthday My Love</title>
+
 <style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family: 'Segoe UI', sans-serif;
+}
+
 body{
-    margin:0;
-    font-family: 'Arial', sans-serif;
-    text-align:center;
-    background: linear-gradient(135deg,#ff9a9e,#fad0c4);
-    overflow:hidden;
+height:100vh;
+overflow:hidden;
 }
+
+/* LOGIN PAGE */
 .login{
-    position:absolute;
-    top:50%;
-    left:50%;
-    transform:translate(-50%,-50%);
+position:fixed;
+width:100%;
+height:100%;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+background:linear-gradient(135deg,#1a1a1a,#3d2c2e);
+color:white;
+z-index:10;
+transition:1s;
 }
+
+.login h2{
+margin-bottom:20px;
+letter-spacing:2px;
+}
+
 input{
-    padding:10px;
-    border:none;
-    border-radius:10px;
+padding:12px 20px;
+border-radius:30px;
+border:none;
+outline:none;
+text-align:center;
 }
+
 button{
-    padding:10px 20px;
-    border:none;
-    border-radius:10px;
-    background:#ff4e8a;
-    color:white;
-    cursor:pointer;
+margin-top:15px;
+padding:10px 25px;
+border:none;
+border-radius:30px;
+background:gold;
+color:black;
+font-weight:bold;
+cursor:pointer;
+transition:0.3s;
 }
+
+button:hover{
+transform:scale(1.05);
+}
+
+/* MAIN CONTENT */
+.main{
+position:absolute;
+width:100%;
+height:100%;
+background:url(https://i.postimg.cc/25nCPBgC/dd9caeb7-0096-47a5-83e0-94d60ee89209.jpg) center/cover no-repeat;
+display:flex;
+justify-content:center;
+align-items:center;
+text-align:center;
+color:white;
+opacity:0;
+transition:2s;
+}
+
+.overlay{
+position:absolute;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.6);
+backdrop-filter:blur(5px);
+}
+
 .content{
-    display:none;
-    padding-top:100px;
-    color:white;
+position:relative;
+padding:20px;
+max-width:700px;
+animation:fadeUp 2s ease forwards;
 }
+
 h1{
-    font-size:40px;
-    animation: fade 3s infinite alternate;
+font-size:32px;
+margin-bottom:15px;
+color:gold;
 }
-@keyframes fade{
-    from{opacity:0.5;}
-    to{opacity:1;}
+
+p{
+font-size:16px;
+line-height:1.8;
 }
+
+@keyframes fadeUp{
+from{opacity:0; transform:translateY(30px);}
+to{opacity:1; transform:translateY(0);}
+}
+
+/* Floating Hearts */
 .heart{
-    position:absolute;
-    color:red;
-    font-size:20px;
-    animation: fall 5s linear infinite;
+position:absolute;
+color:gold;
+animation:float 6s linear infinite;
 }
-@keyframes fall{
-    0%{top:-10%;}
-    100%{top:110%;}
+
+@keyframes float{
+0%{transform:translateY(100vh);opacity:0;}
+20%{opacity:1;}
+100%{transform:translateY(-10vh);opacity:0;}
+}
+
+@media(max-width:600px){
+h1{font-size:24px;}
+p{font-size:14px;}
 }
 </style>
 </head>
+
 <body>
 
 <div class="login" id="login">
-    <h2>Enter Password 💕</h2>
-    <input type="password" id="password" placeholder="Password">
-    <br><br>
-    <button onclick="checkPassword()">Open My Heart</button>
+<h2>Enter Password 💛</h2>
+<input type="password" id="password" placeholder="Password">
+<button onclick="checkPassword()">Open My Heart</button>
 </div>
 
-<div class="content" id="content">
-    <h1>Happy Birthday 🎉</h1>
-    <h2>Theresa Dyah Ayu Cecilia Putri Winarno</h2>
-    <p>
-    26 Februari 2026 💖<br><br>
-    Terima kasih sudah hadir di hidupku.<br>
-    Kamu adalah doa yang menjadi nyata.<br>
-    Semoga Tuhan selalu memberkati langkahmu.<br><br>
-    I love you more than words can say 🤍
-    </p>
+<div class="main" id="main">
+<div class="overlay"></div>
+
+<div class="content">
+<h1>Happy Birthday, Theresa 🤍</h1>
+
+<p>
+26 Februari 2026.<br><br>
+
+Hari ini adalah hari dimana dunia diberkati dengan hadirnya seorang perempuan luar biasa.  
+Perempuan yang tidak hanya cantik secara rupa, tapi juga indah dalam hati dan lembut dalam tutur katanya.  
+
+Theresa Dyah Ayu Cecilia Putri Winarno,  
+terima kasih karena sudah hadir dalam hidupku.  
+Terima kasih karena sudah menjadi doa yang Tuhan jawab dengan cara yang begitu manis.  
+
+Aku bersyukur bisa berdiri di sampingmu.  
+Aku bersyukur bisa memanggilmu milikku.  
+Dan aku bersyukur setiap hari karena Tuhan mempertemukan kita di waktu yang tepat.  
+
+Semoga di usia barumu ini,  
+setiap langkahmu dipenuhi damai,  
+setiap impianmu dipermudah jalannya,  
+dan setiap air matamu diganti dengan kebahagiaan yang berlipat ganda.  
+
+Aku mungkin tidak sempurna,  
+tapi aku akan selalu berusaha menjadi yang terbaik untukmu.  
+Menjadi tempatmu pulang.  
+Menjadi bahu ketika kamu lelah.  
+Menjadi tangan yang selalu menggenggam ketika dunia terasa berat.  
+
+Selamat ulang tahun, cintaku.  
+Semoga kita selalu berjalan bersama,  
+bukan hanya hari ini,  
+tapi sampai waktu yang Tuhan izinkan.  
+
+I love you,  
+more than yesterday,  
+less than tomorrow. 🤍
+</p>
+
+</div>
 </div>
 
 <audio id="music" loop>
-<source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+<source src="YOUR_MUSIC_LINK_HERE.mp3" type="audio/mpeg">
 </audio>
 
 <script>
 function checkPassword(){
-    var pass = document.getElementById("password").value;
-    if(pass === "sikaica"){
-        document.getElementById("login").style.display="none";
-        document.getElementById("content").style.display="block";
-        document.getElementById("music").play();
-        createHearts();
-    }else{
-        alert("Wrong Password 💔");
-    }
+var pass = document.getElementById("password").value;
+if(pass === "sikaica"){
+document.getElementById("login").style.opacity="0";
+setTimeout(()=>{
+document.getElementById("login").style.display="none";
+document.getElementById("main").style.opacity="1";
+document.getElementById("music").play();
+createHearts();
+},1000);
+}else{
+alert("Wrong Password 🤍");
+}
 }
 
 function createHearts(){
-    setInterval(function(){
-        var heart = document.createElement("div");
-        heart.className="heart";
-        heart.style.left=Math.random()*100+"%";
-        heart.innerHTML="❤️";
-        document.body.appendChild(heart);
-        setTimeout(()=>{heart.remove();},5000);
-    },300);
+setInterval(()=>{
+let heart=document.createElement("div");
+heart.className="heart";
+heart.style.left=Math.random()*100+"%";
+heart.innerHTML="✧";
+heart.style.fontSize=Math.random()*20+10+"px";
+document.body.appendChild(heart);
+setTimeout(()=>heart.remove(),6000);
+},500);
 }
 </script>
 
