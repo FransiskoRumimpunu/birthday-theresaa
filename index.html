@@ -103,6 +103,23 @@ to{opacity:1;transform:translateY(0);}
 }
 .icon{font-size:22px;}
 
+/* NAV BUTTONS */
+.nav-btn{
+position:fixed;
+top:50%;
+transform:translateY(-50%);
+background:rgba(255,215,0,0.8);
+color:black;
+border:none;
+font-size:20px;
+padding:12px 16px;
+border-radius:50%;
+cursor:pointer;
+z-index:20;
+}
+#prevBtn{left:15px;}
+#nextBtn{right:15px;}
+
 @media(max-width:600px){
 p{font-size:14px;}
 h1{font-size:22px;}
@@ -121,64 +138,44 @@ h1{font-size:22px;}
 Tap Anywhere To Begin ✨
 </div>
 
+<button class="nav-btn" id="prevBtn" onclick="prev()">❮</button>
+<button class="nav-btn" id="nextBtn" onclick="next()">❯</button>
+
 <div class="slider" id="slider">
 
 <div class="slide" style="background-image:url(https://i.postimg.cc/25nCPBgC/dd9caeb7-0096-47a5-83e0-94d60ee89209.jpg)">
 <div class="overlay"></div>
 <div class="content">
 <h1>Happy Birthday My Love</h1>
-<p>
-Theresa, di hari istimewamu ini aku ingin kamu tahu bahwa kamu adalah
-anugerah terindah dalam hidupku. Kehadiranmu membawa damai,
-senyummu membawa terang, dan cintamu membuatku percaya bahwa
-Tuhan benar-benar bekerja dengan cara yang indah.
-Aku bersyukur setiap hari karena bisa memanggilmu milikku.
-</p>
-</div>
-</div>
-
-<div class="slide" style="background-image:url(https://i.postimg.cc/vT84Xvqx/c783991f-7137-44b9-85bb-7a813b4404c1.jpg)">
-<div class="overlay"></div>
-<div class="content">
-<h1>You Are My Home</h1>
-<p>
-Bersamamu aku belajar arti kesabaran, ketulusan, dan cinta yang dewasa.
-Aku mencintaimu bukan hanya karena kecantikanmu,
-tetapi karena hatimu yang lembut dan cara kamu memperlakukan orang lain.
-Jika suatu hari dunia terasa berat,
-aku ingin menjadi tempatmu pulang.
-</p>
+<p>Theresa, kamu adalah anugerah terindah dalam hidupku...</p>
 </div>
 </div>
 
 <div class="slide" style="background-image:url(https://i.postimg.cc/PqLzQdLZ/Whats-App-Image-2026-02-26-at-00-25-55-(1).jpg)">
 <div class="overlay"></div>
 <div class="content">
-<h1>Growing With You</h1>
-<p>
-Aku ingin tumbuh bersamamu.
-Menghadapi setiap musim kehidupan bersama,
-tertawa dalam bahagia dan bertahan dalam sulit.
-Jika aku diberi kesempatan memilih lagi,
-aku tetap akan memilihmu — lagi dan lagi.
-</p>
+<h1>You Are My Home</h1>
+<p>Bersamamu aku belajar arti cinta yang dewasa...</p>
 </div>
 </div>
 
 <div class="slide" style="background-image:url(https://i.postimg.cc/V6qtKvzR/Whats-App-Image-2026-02-26-at-00-25-55.jpg)">
 <div class="overlay"></div>
 <div class="content">
-<h1>Your Dreams Matter</h1>
-<p>
-Di usia barumu ini, semoga setiap doa yang kamu panjatkan
-Tuhan jawab dengan cara terbaik.
-Aku akan selalu mendukungmu,
-menjadi orang yang percaya padamu bahkan ketika kamu ragu pada dirimu sendiri.
-</p>
+<h1>Growing With You</h1>
+<p>Aku ingin tumbuh bersamamu dalam setiap musim kehidupan...</p>
 </div>
 </div>
 
 <div class="slide" style="background-image:url(https://i.postimg.cc/fbgqMHXM/Whats-App-Image-2026-02-26-at-00-25-54.jpg)">
+<div class="overlay"></div>
+<div class="content">
+<h1>Your Dreams Matter</h1>
+<p>Semoga setiap doa dan impianmu dimudahkan jalannya...</p>
+</div>
+</div>
+
+<div class="slide" style="background-image:url(https://i.postimg.cc/vT84Xvqx/c783991f-7137-44b9-85bb-7a813b4404c1.jpg)">
 <div class="overlay"></div>
 <div class="content">
 <h1>Our Special Birthday Plan ✨</h1>
@@ -204,12 +201,6 @@ menjadi orang yang percaya padamu bahkan ketika kamu ragu pada dirimu sendiri.
 <span>Dinner and going anywhere</span>
 </div>
 </div>
-
-<p style="margin-top:30px;">
-That night won't just be a date.
-It will be another beautiful memory we create together.
-And I cannot wait to live it with you 🤍
-</p>
 
 </div>
 </div>
@@ -261,7 +252,6 @@ document.getElementById("slider").style.transform=`translateX(-${current*100}vw)
 }
 }
 
-/* generate stars */
 for(let i=0;i<120;i++){
 let star=document.createElement("div");
 star.className="star";
